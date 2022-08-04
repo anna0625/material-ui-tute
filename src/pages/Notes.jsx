@@ -10,6 +10,7 @@ import {
   getDocs,
   deleteDoc,
   doc,
+  onSnapshot,
 } from "firebase/firestore";
 
 //  Initialize Firebase
@@ -23,17 +24,26 @@ export default function Notes() {
   const [notes, setNotes] = useState([]);
   useEffect(() => {
     //  get collection data
-    getDocs(colRef)
-      .then((snapshot) => {
-        let notes = [];
-        snapshot.docs.forEach((doc) => {
-          notes.push({ ...doc.data(), id: doc.id });
-        });
-        setNotes(notes);
-      })
-      .catch((err) => {
-        console.log(err.message);
+    // getDocs(colRef)
+    //   .then((snapshot) => {
+    //     let notes = [];
+    //     snapshot.docs.forEach((doc) => {
+    //       notes.push({ ...doc.data(), id: doc.id });
+    //     });
+    //     setNotes(notes);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.message);
+    //   });
+
+    // realtime collection data
+    onSnapshot(colRef, (snapshot) => {
+      let notes = [];
+      snapshot.docs.forEach((doc) => {
+        notes.push({ ...doc.data(), id: doc.id });
       });
+      setNotes(notes);
+    });
     // fetch("http://localhost:8000/notes")
     //   .then((res) => res.json())
     //   .then((data) => setNotes(data));
@@ -72,7 +82,7 @@ export default function Notes() {
         columnClassName="my-masonry-grid_column"
       >
         {notes.map((note) => (
-          <div item key={note.id} xs={12} sm={6} md={4}>
+          <div key={note.id} xs={12} sm={6} md={4}>
             <NoteCard note={note} handleDelete={handleDelete} />
           </div>
         ))}
