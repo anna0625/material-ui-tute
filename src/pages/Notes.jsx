@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Paper, Container } from "@material-ui/core";
 import { NoteCard } from "../components/NoteCard";
+import Masonry from "react-masonry-css";
 
 export default function Notes() {
   const [notes, setNotes] = useState([]);
