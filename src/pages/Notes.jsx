@@ -12,11 +12,13 @@ import {
   doc,
   onSnapshot,
 } from "firebase/firestore";
+// import { getAuth } from "firebase/auth";
 
 //  Initialize Firebase
 initializeApp(firebaseConfig);
 //  init services
 const db = getFirestore();
+// const auth = getAuth();
 //  collection reference
 const colRef = collection(db, "notes");
 
