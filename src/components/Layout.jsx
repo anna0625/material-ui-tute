@@ -9,7 +9,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import { AddCircleOutline, SubjectOutlined } from "@mui/icons-material";
 import { useHistory, useLocation } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
-import ToolBar from "@material-ui/core/ToolBar";
+import Toolbar from "@material-ui/core/Toolbar";
 import { format } from "date-fns";
 import Avatar from "@material-ui/core/Avatar";
 
@@ -73,7 +73,7 @@ export const Layout = ({ children }) => {
     <div className={classes.root}>
       {/* app bar */}
       <AppBar elevation={1} className={classes.appbar}>
-        <ToolBar>
+        <Toolbar>
           <Typography className={classes.date}>
             Today is the {format(new Date(), "do MMMM Y")}.
           </Typography>
@@ -83,7 +83,7 @@ export const Layout = ({ children }) => {
             alt="profile"
             className={classes.avatar}
           />
-        </ToolBar>
+        </Toolbar>
       </AppBar>
       {/* side drawer */}
       <Drawer
