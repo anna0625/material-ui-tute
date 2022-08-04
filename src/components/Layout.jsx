@@ -3,7 +3,8 @@ import React from "react";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
-import ListItem from "@mui/material/ListItem";
+// className doesn't work with @mui/material/ListItem
+import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { AddCircleOutline, SubjectOutlined } from "@mui/icons-material";
 import { useHistory, useLocation } from "react-router-dom";
@@ -23,7 +24,7 @@ const useStyle = makeStyles((theme) => {
       padding: theme.spacing(3),
     },
     page: {
-      background: "#f9f9f9",
+      background: "#ffffff",
       width: "100%",
     },
     drawer: {
@@ -33,7 +34,7 @@ const useStyle = makeStyles((theme) => {
       width: drawerWidth,
     },
     active: {
-      background: "#f4f4f4",
+      background: "#f2f2f2",
     },
     title: {
       padding: theme.spacing(2.5),
