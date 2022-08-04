@@ -12,6 +12,12 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import { makeStyles } from "@material-ui/core/styles"; // a function
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
+//  init services
+const db = getFirestore();
+//  collection reference
+const colRef = collection(db, "notes");
 
 // return a hook
 const useStyles = makeStyles({
@@ -43,12 +49,17 @@ export default function Create() {
       setDetailsError(true);
     }
     if (title && details) {
-      console.log(title, details, category);
-      fetch("http://localhost:8000/notes", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({ title, details, category }),
+      addDoc(colRef, {
+        title: title,
+        details: details,
+        category: category,
       }).then(() => history.push("/"));
+      // console.log(title, details, category);
+      // fetch("http://localhost:8000/notes", {
+      //   method: "POST",
+      //   headers: { "Content-type": "application/json" },
+      //   body: JSON.stringify({ title, details, category }),
+      // }).then(() => history.push("/"));
     }
   };
 
