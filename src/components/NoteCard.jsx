@@ -34,12 +34,13 @@ export const NoteCard = ({ note, handleDelete }) => {
             </Avatar>
           }
           action={
-            <IconButton onClick={() => handleDelete(note.id)}>
+            <IconButton onClick={() => handleDelete(note.id)} name="test">
               <DeleteOutline />
             </IconButton>
           }
           title={note.title}
           subheader={note.category}
+          data-testid="cardheader"
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary">
