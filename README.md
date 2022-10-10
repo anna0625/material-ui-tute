@@ -1,7 +1,6 @@
 # material-ui-tute
 
-a simple note page with material-ui and react.  
-followed by a tutorial taught by [The Net Ninja - Youtube](https://www.youtube.com/c/TheNetNinja)
+A simple note page with material-ui and react. Data is stored in FireSotre. I learnt from the tutorial taught by The Net Ninja. [Try it!](https://notetaking-materialui-react.web.app)
 
 /create  
 ![create](/img/create.png)
